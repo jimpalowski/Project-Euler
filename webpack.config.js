@@ -14,7 +14,7 @@ module.exports = {
     contentBase: './dist'
   },
   plugins: [
-    new UglifyJsPlugin({ sourceMap: true }), 
+    new UglifyJsPlugin({ sourceMap: true }),
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
       title: 'Ping Pong',
@@ -38,13 +38,24 @@ module.exports = {
         loader: "eslint-loader"
       },
       {
+        test: /\.js$/,
+        exclude: [
+          /node_modules/,
+          /spec/
+        ],
+        loader: "babel-loader",
+        options: {
+          presets: ['es2015']
+        }
+      },
+      {
         test: /\.(png|jpg|gif)$/,
         use: [
           {
             loader: 'file-loader',
           }
         ]
-        }
+      }
     ]
   }
 };
