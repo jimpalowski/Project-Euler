@@ -12,5 +12,6 @@ sumSquareDifference.prototype.problem6 = function(limit) {
     sumTwo += i;
   }
   difference = (Math.pow(sumTwo, 2)) - sumOne;
+  console.log(difference);
   return difference;
 };
